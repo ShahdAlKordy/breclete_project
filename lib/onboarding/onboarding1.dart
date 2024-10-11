@@ -13,14 +13,13 @@ class OnBoardingScreen1 extends StatelessWidget {
         // الخلفية الزرقاء للنص
         title: 'Monitor Your Health',
         description:
-            'Effortlessly track your health with our smart bracelet...',
+            'Track your overall health effortlessly with our smart bracelet. Get real-time insights into your vital signs to stay informed and maintain a healthy lifestyle',
         onNext: () {
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (_) => OnBoardingScreen2()));
         },
         onSkip: () {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (_) => OnBoardingScreen3())); // الانتقال لآخر صفحة
+          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => OnBoardingScreen3()));
         },
       ),
     );

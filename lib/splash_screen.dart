@@ -1,5 +1,7 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
+
 import 'onboarding/onboarding1.dart'; // أول صفحة Onboarding
 
 class SplashScreen extends StatefulWidget {
@@ -16,20 +18,17 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
 
-    // إنشاء الأنيميشن
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2), // مدة الأنيميشن
+      duration: Duration(seconds: 2),
     );
 
-    // الأنيميشن بتاع التكبير التدريجي
     _animation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeOut),
     );
 
-    _controller.forward(); // ابدأ الأنيميشن
+    _controller.forward();
 
-    // هنتقل لأول صفحة Onboarding بعد 3 ثواني
     Timer(Duration(seconds: 5), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => OnBoardingScreen1()),
@@ -39,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   void dispose() {
-    _controller.dispose(); // إنهاء الأنيميشن لما تخلص الصفحة
+    _controller.dispose();
     super.dispose();
   }
 
@@ -49,10 +48,9 @@ class _SplashScreenState extends State<SplashScreen>
       backgroundColor: Color(0xff4579AD),
       body: Center(
         child: FadeTransition(
-          // تأثير التدريج مع التكبير
           opacity: _animation,
           child: ScaleTransition(
-            scale: _animation, // اللوجو هيكبر بالتدريج
+            scale: _animation,
             child:
                 Image.asset('assets/images/logo.png', width: 280, height: 260),
           ),
@@ -61,3 +59,40 @@ class _SplashScreenState extends State<SplashScreen>
     );
   }
 }
+///////////////////////
+// import 'dart:async';
+// import 'package:flutter/material.dart';
+// import 'onboarding/onboarding1.dart';
+//
+// class SplashScreen extends StatefulWidget {
+//   @override
+//   _SplashScreenState createState() => _SplashScreenState();
+// }
+//
+// class _SplashScreenState extends State<SplashScreen> {
+//   @override
+//   void initState() {
+//     super.initState();
+//
+//     // نستخدم الـ Timer للانتقال للصفحة التالية بعد 5 ثواني
+//     Timer(Duration(seconds: 5), () {
+//       Navigator.of(context).pushReplacement(
+//         MaterialPageRoute(builder: (_) => OnBoardingScreen1()),
+//       );
+//     });
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Color(0xff4579AD),
+//       body: Center(
+//         child: Image.asset(
+//           'assets/images/logo.png',
+//           width: 280,
+//           height: 260,
+//         ), // عرض الصورة بشكل مباشر بدون أنيميشن
+//       ),
+//     );
+//   }
+// }

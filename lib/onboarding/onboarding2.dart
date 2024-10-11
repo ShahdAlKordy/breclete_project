@@ -9,13 +9,12 @@ class OnBoardingScreen2 extends StatelessWidget {
       body: OnBoardingWidget(
         imagePath: 'assets/images/on2.png',
         blueBackgroundImagePath: 'assets/images/backon.png',
-        // الخلفية الزرقاء للنص
-        title: 'Monitor Your Health',
+        title: 'Keep Your Loved Ones Safe',
         description:
-            'Effortlessly track your health with our smart bracelet...',
+            'Stay informed about the location of your family members or anyone you care about. Our bracelet ensures you are always connected, providing real-time updates for their safety and your peace of mind.',
         onNext: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => OnBoardingScreen2()));
+              .push(MaterialPageRoute(builder: (_) => OnBoardingScreen3()));
         },
         onSkip: () {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
