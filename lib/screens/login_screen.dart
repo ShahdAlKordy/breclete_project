@@ -22,15 +22,15 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/images/logo.png', // تأكد من وجود مسار صحيح للصورة
-                  height: 50,
-                  width: 50,
+                  'assets/images/logosign.png', // تأكد من وجود مسار صحيح للصورة
+                  height: 94,
+                  width: 101,
                 ),
                 SizedBox(width: 10), // مسافة بين اللوجو والنص
                 Text(
                   'Sign In',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 32,
                     fontWeight: FontWeight.bold,
                     color: Colors.white, // لون النص أبيض
                   ),
@@ -57,22 +57,32 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 // المحتوى فوق الصورة
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(30.0),
                   child: Form(
                     key: _formKey,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: 20), // مسافة فارغة تحت الجزء العلوي
-
-                        // حقل إدخال البريد الإلكتروني
+                        SizedBox(height: 30), // مسافة فارغة تحت الجزء العلوي
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          // النص يروح ناحية الشمال
+                          child: Text(
+                            'Email',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500, // خط ميديم
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 8),
                         TextFormField(
                           decoration: InputDecoration(
-                            labelText: 'Email',
+                            labelText: 'Enter your email',
                             labelStyle: TextStyle(
                               color: Color(0xff4579AD), // لون النص "Email"
                             ),
-                            hintText: 'Enter your email',
+                            hintText: '',
                             prefixIcon: Icon(
                               Icons.email,
                               color: Color(0xff4579AD), // لون الأيقونة
@@ -99,16 +109,29 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                         ),
 
-                        SizedBox(height: 20),
+                        SizedBox(height: 32),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          // النص يروح ناحية الشمال
+                          child: Text(
+                            'Password',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500, // خط ميديم
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(height: 8),
                         // حقل إدخال كلمة المرور
                         TextFormField(
                           obscureText: _obscurePassword,
                           decoration: InputDecoration(
-                            labelText: 'Password',
+                            labelText: 'Enter your password',
                             labelStyle: TextStyle(
                               color: Color(0xff4579AD), // لون النص "Password"
                             ),
-                            hintText: 'Enter your password',
+                            hintText: '',
                             prefixIcon: Icon(
                               Icons.lock,
                               color: Color(0xff4579AD), // لون الأيقونة
@@ -149,7 +172,20 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                         ),
 
-                        SizedBox(height: 20),
+                        SizedBox(height: 24),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          // النص يروح ناحية الشمال
+                          child: Text(
+                            'Forget password ?',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500, // خط ميديم
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 32),
+
                         // زر تسجيل الدخول
                         ElevatedButton(
                           onPressed: () {
@@ -169,11 +205,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
 
-                        SizedBox(height: 20),
+                        SizedBox(height: 150),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Don't have an account? "),
+                            Text(
+                              "Don't have an account? ",
+                            ),
                             GestureDetector(
                               onTap: () {
                                 Navigator.pushNamed(context,

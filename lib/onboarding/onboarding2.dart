@@ -16,6 +16,7 @@ class OnBoardingScreen2 extends StatelessWidget {
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (_) => OnBoardingScreen3()));
         },
+        indecator: 'assets/images/indecator2.png',
         onSkip: () {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (_) => OnBoardingScreen3())); // الانتقال لآخر صفحة

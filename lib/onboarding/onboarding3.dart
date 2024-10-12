@@ -18,6 +18,7 @@ class OnBoardingScreen3 extends StatelessWidget {
               builder: (_) =>
                   LoginScreen())); // الانتقال لصفحة التطبيق الأساسية
         },
+        indecator: 'assets/images/indecator3.png',
         isLastPage: true, // عشان نخلي الزر يظهر كـ "Start!"
       ),
     );

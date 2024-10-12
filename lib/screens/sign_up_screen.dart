@@ -14,32 +14,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       body: Column(
         children: [
-          // الجزء العلوي الذي يأخذ 0.2 من الشاشة ويحتوي على اللوجو وSign Up
           Container(
             height: MediaQuery.of(context).size.height * 0.2,
-            color: Color(0xff4579AD), // اللون المطلوب
+            color: Color(0xff4579AD),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/images/logo.png', // تأكد من وجود مسار صحيح للصورة
-                  height: 50,
-                  width: 50,
+                  'assets/images/logosign.png', // تأكد من وجود مسار صحيح للصورة
+                  height: 94,
+                  width: 101,
                 ),
                 SizedBox(width: 10), // مسافة بين اللوجو والنص
                 Text(
                   'Sign Up',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 32,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white, // لون النص أبيض
+                    color: Colors.white,
                   ),
                 ),
               ],
             ),
           ),
-
-          // الجزء المتبقي من الصفحة (0.8) مع الصورة والخلفية
           Expanded(
             child: Stack(
               children: [
@@ -55,19 +52,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: MediaQuery.of(context).size.height,
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(30.0),
                   child: Form(
                     key: _formKey,
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(height: 20), // مسافة فارغة فوق الفورم
+                          SizedBox(height: 58), // مسافة فارغة فوق الفورم
 
-                          // حقل إدخال الاسم
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            // النص يروح ناحية الشمال
+                            child: Text(
+                              'Name',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500, // خط ميديم
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 8),
                           TextFormField(
                             decoration: InputDecoration(
-                              labelText: 'Name',
+                              labelText: 'Enter your name',
                               labelStyle: TextStyle(
                                 color: Color(0xff4579AD), // لون النص "Name"
                               ),
@@ -97,16 +105,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             },
                           ),
 
-                          SizedBox(height: 20),
-
+                          SizedBox(height: 24),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            // النص يروح ناحية الشمال
+                            child: Text(
+                              'Email',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500, // خط ميديم
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 8),
                           // حقل إدخال البريد الإلكتروني
                           TextFormField(
                             decoration: InputDecoration(
-                              labelText: 'Email',
+                              labelText: 'Enter your email',
                               labelStyle: TextStyle(
                                 color: Color(0xff4579AD), // لون النص "Email"
                               ),
-                              hintText: 'Enter your email',
+                              hintText: '',
                               prefixIcon: Icon(
                                 Icons.email,
                                 color: Color(0xff4579AD), // لون الأيقونة
@@ -132,17 +151,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             },
                           ),
 
-                          SizedBox(height: 20),
-
+                          SizedBox(height: 24),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            // النص يروح ناحية الشمال
+                            child: Text(
+                              'Password',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500, // خط ميديم
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 8),
                           // حقل إدخال كلمة المرور
                           TextFormField(
                             obscureText: _obscurePassword,
                             decoration: InputDecoration(
-                              labelText: 'Password',
+                              labelText: 'Enter your password',
                               labelStyle: TextStyle(
                                 color: Color(0xff4579AD), // لون النص "Password"
                               ),
-                              hintText: 'Enter your password',
+                              hintText: '',
                               prefixIcon: Icon(
                                 Icons.lock,
                                 color: Color(0xff4579AD), // لون الأيقونة
@@ -181,18 +211,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             },
                           ),
 
-                          SizedBox(height: 20),
-
-                          // تأكيد كلمة المرور
+                          SizedBox(height: 24),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            // النص يروح ناحية الشمال
+                            child: Text(
+                              'Confirm Password',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500, // خط ميديم
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 8),
                           TextFormField(
                             obscureText: _obscurePassword,
                             decoration: InputDecoration(
-                              labelText: 'Confirm Password',
+                              labelText: 'Enter your password again',
                               labelStyle: TextStyle(
                                 color: Color(
                                     0xff4579AD), // لون النص "Confirm Password"
                               ),
-                              hintText: 'Enter your password again',
+                              hintText: '',
                               prefixIcon: Icon(
                                 Icons.lock,
                                 color: Color(0xff4579AD), // لون الأيقونة
@@ -231,7 +271,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             },
                           ),
 
-                          SizedBox(height: 20),
+                          SizedBox(height: 40),
 
                           // زر تسجيل الاشتراك
                           ElevatedButton(
@@ -252,7 +292,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           ),
 
-                          SizedBox(height: 20),
+                          SizedBox(height: 40),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
